@@ -1,4 +1,13 @@
-window.onload = function wub() {
+function wub() {
+
+	document.querySelector('.search')
+		.addEventListener('click', function(e) {
+			var key = document.querySelector('.key').value;
+			updateContent(key, function(content) {
+				loading.stop(document.querySelector('.content'));
+				refreshDiv(document.querySelector('.content'), content);
+			});
+		});
 
 	var loading = {
 		start: function(location) {
@@ -22,19 +31,15 @@ window.onload = function wub() {
 	}
 
 	var refreshDiv = function(div, c) {
+		if (c.t == 'scr') {
+			return eval(c.c);
+		}
 		div.innerHTML = '';
 		div.appendChild((function() {
 				var dom = new DOMParser();
-				return dom.parseFromString(c, 'text/html').body;
+				return dom.parseFromString(c.c, 'text/html').body;
 			})());
 	}
-
-	document.querySelector('.search')
-		.addEventListener('click', function(e) {
-			var key = document.querySelector('.key').value;
-			updateContent(key, function(content) {
-				loading.stop(document.querySelector('.content'));
-				refreshDiv(document.querySelector('.content'), content);
-			});
-		});
 };
+
+window.onload = wub;

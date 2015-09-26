@@ -18,6 +18,8 @@ body {
 	border-radius: 3px;
 	border: 1px solid rgba(0,0,0,.1);
 	box-shadow: 1px 1px 3px 1px rgba(0,0,0,.1);
+	display: block;
+	margin: 5px auto;
 }
 
 .lookup button {

@@ -63,3 +63,9 @@ body {
     max-width: 400px;
     margin: 20px auto;
 }
+
+@media (max-width: 400px) {
+	.lookup {
+		margin-left: -4px;
+	}
+}

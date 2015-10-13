@@ -1,12 +1,26 @@
 function wub() {
 
-	document.querySelector('.search')
-		.addEventListener('click', function(e) {
+	if (window.location.search.length > 0) {
+		var w = window.location.search.split('?w=')[1];
+		document.querySelector('.key').value = w;
+	}
+
+	var reqWub = function(e) {
 			var key = document.querySelector('.key').value;
 			updateContent(key, function(content) {
 				loading.stop(document.querySelector('.content'));
 				refreshDiv(document.querySelector('.content'), content);
 			});
+	};
+
+	document.querySelector('.search')
+		.addEventListener('click', reqWub);
+
+	document.querySelector('.key')
+		.addEventListener('keypress', function(e) {
+			if (e.keyCode == 13) {
+				reqWub(e);
+			}
 		});
 
 	var loading = {

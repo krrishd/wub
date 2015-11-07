@@ -1,11 +1,5 @@
 function wub() {
 
-	if (window.location.search.length > 0) {
-		var w = window.location.search.split('?w=')[1];
-		document.querySelector('.key').value = w;
-		reqWub();
-	}
-
 	var reqWub = function(e) {
 			var key = document.querySelector('.key').value;
 			updateContent(key, function(content) {
@@ -13,6 +7,12 @@ function wub() {
 				refreshDiv(document.querySelector('.content'), content);
 			});
 	};
+
+	if (window.location.search.length > 0) {
+		var w = window.location.search.split('?w=')[1];
+		document.querySelector('.key').value = w;
+		reqWub();
+	}
 
 	document.querySelector('.search')
 		.addEventListener('click', reqWub);

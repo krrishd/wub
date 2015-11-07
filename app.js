@@ -3,6 +3,7 @@ function wub() {
 	if (window.location.search.length > 0) {
 		var w = window.location.search.split('?w=')[1];
 		document.querySelector('.key').value = w;
+		reqWub();
 	}
 
 	var reqWub = function(e) {

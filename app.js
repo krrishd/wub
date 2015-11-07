@@ -8,12 +8,6 @@ function wub() {
 			});
 	};
 
-	if (window.location.search.length > 0) {
-		var w = window.location.search.split('?w=')[1];
-		document.querySelector('.key').value = w;
-		reqWub();
-	}
-
 	document.querySelector('.search')
 		.addEventListener('click', reqWub);
 
@@ -54,6 +48,12 @@ function wub() {
 				var dom = new DOMParser();
 				return dom.parseFromString(c.c, 'text/html').body;
 			})());
+	}
+
+	if (window.location.search.length > 0) {
+		var w = window.location.search.split('?w=')[1];
+		document.querySelector('.key').value = w;
+		reqWub();
 	}
 };
 

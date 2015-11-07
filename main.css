@@ -64,6 +64,16 @@ body {
     margin: 20px auto;
 }
 
+.zippyshare_link {
+    padding: 10px;
+    margin: 10px;
+    font-size: 0.7em;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: -10px;
+}
+
 @media (max-width: 400px) {
 	.lookup {
 		margin-left: -4px;

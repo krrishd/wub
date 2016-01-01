@@ -44,6 +44,10 @@ body {
 	margin: 5px auto;
 }
 
+.key:focus {
+	outline: none;
+}
+
 .lookup button {
 	display: block;
 	margin: 35px auto;
